@@ -1,8 +1,11 @@
 #include <sol/sol.hpp>
+#include <entt.hpp>
+
+#include "components.hpp"
 
 class SystemHandler {
     public:
-        SystemHandler();
+        SystemHandler(entt::registry& registry);
     private:
         sol::state lua;
 };

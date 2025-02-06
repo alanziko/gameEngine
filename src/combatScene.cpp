@@ -1,6 +1,7 @@
 #include "combatScene.hpp"
 
 CombatScene::CombatScene() {
+    loadScene();
 }
 
 void CombatScene::update() {

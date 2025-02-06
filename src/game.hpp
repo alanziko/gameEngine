@@ -8,8 +8,8 @@ class Game {
         void mainloop();
         bool isRunning();
     private:
-        SystemHandler systemHandler;
         sf::RenderWindow window;
         Renderer renderer;
         CombatScene scene;
+        SystemHandler systemHandler;
 };

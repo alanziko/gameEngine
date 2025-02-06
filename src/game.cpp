@@ -1,8 +1,9 @@
 #include "game.hpp"
 
-Game::Game() : window(sf::RenderWindow(sf::VideoMode(APP_SIZE_X, APP_SIZE_Y), "App")), renderer(window) { 
-    scene.loadScene();
-    
+Game::Game() :
+    window(sf::RenderWindow(sf::VideoMode(APP_SIZE_X, APP_SIZE_Y), "App")),
+    renderer(window),
+    systemHandler(scene.getRegistry()) {
 }
 
 bool Game::isRunning() {

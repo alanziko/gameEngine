@@ -15,8 +15,7 @@ void Renderer::draw(entt::registry& registry) {
 
 void Renderer::drawUnits(entt::registry& registry) {
     auto view = registry.view<Position>();
-    // printf("%ld", view.size());
-    for (const auto& entity : view) {
+        for (const auto& entity : view) {
         const auto pos = view.get<Position>(entity); 
         // const auto color = view.get<sf::Color>(entity);
 

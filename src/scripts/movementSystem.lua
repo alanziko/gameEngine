@@ -1,3 +1,3 @@
-function handleMove()
-    print("yoo")
+function movementSystem(entity)
+    set_position(entity, 30, 0)
 end
