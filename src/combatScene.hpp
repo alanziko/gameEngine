@@ -6,6 +6,7 @@
 
 #include "components.hpp"
 #include "constants.hpp"
+#include "systemHandler.hpp"
 
 using json = nlohmann::json;
 
@@ -22,5 +23,5 @@ class CombatScene {
     
         sf::RenderWindow window;
         entt::registry registry;
-
+        SystemHandler systemHandler;
 };

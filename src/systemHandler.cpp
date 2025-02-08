@@ -2,20 +2,21 @@
 
 SystemHandler::SystemHandler(entt::registry& registry) {
     lua.open_libraries(sol::lib::base);
-    lua.script_file("../src/scripts/movementSystem.lua");
-    
-    lua.set_function("set_position", [&registry](entt::entity entity, float x, float y) {
-        auto& pos = registry.get<Position>(entity);
-        pos.x = x;
-        pos.y = y;
+    lua.script_file("../src/scripts/movementSystem.lua");   
+    bindSystems();
+    setFunctions(registry);
+}
+void SystemHandler::setFunctions(entt::registry& registry) {
+    lua.set_function("getEntitiesByComponent", [&registry](std::string componentName) -> std::vector<entt::entity> {
+        return getEntitiesByComponent(registry, componentName);
     });
-
-    const std::function<void(entt::entity)>& movementSystem = lua["movementSystem"];
-
-    auto view = registry.view<Position>();
-    for(const auto& entity : view) {
-        movementSystem(entity);
-        break;
-    }
-    
+    lua.set_function("setPosition", [&registry](entt::entity entity, float x, float y) {
+        return setPosition(registry, entity, x, y);
+    });
+}
+void SystemHandler::bindSystems() {
+    systems[0] = lua["movementSystem"];
+}
+void SystemHandler::runSystems(entt::registry& registry) {
+    systems[0](registry);
 }

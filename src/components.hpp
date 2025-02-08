@@ -16,3 +16,7 @@ struct TextInfo {
     sf::Font font;
     int charSize;
 };
+
+struct SelectedUnit {};
+
+struct Empty {};

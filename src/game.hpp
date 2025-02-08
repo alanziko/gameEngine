@@ -1,6 +1,5 @@
 #include "renderer.hpp"
 #include "combatScene.hpp"
-#include "systemHandler.hpp"
 
 class Game {
     public:
@@ -11,5 +10,4 @@ class Game {
         sf::RenderWindow window;
         Renderer renderer;
         CombatScene scene;
-        SystemHandler systemHandler;
 };

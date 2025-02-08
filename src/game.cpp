@@ -2,8 +2,7 @@
 
 Game::Game() :
     window(sf::RenderWindow(sf::VideoMode(APP_SIZE_X, APP_SIZE_Y), "App")),
-    renderer(window),
-    systemHandler(scene.getRegistry()) {
+    renderer(window) {
 }
 
 bool Game::isRunning() {

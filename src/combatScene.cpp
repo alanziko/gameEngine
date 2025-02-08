@@ -1,10 +1,11 @@
 #include "combatScene.hpp"
 
-CombatScene::CombatScene() {
+CombatScene::CombatScene() : systemHandler(registry) {
     loadScene();
 }
 
 void CombatScene::update() {
+    systemHandler.runSystems(registry);   
 }
 
 void CombatScene::updateEvents() {
