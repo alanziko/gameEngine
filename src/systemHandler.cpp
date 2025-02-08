@@ -13,6 +13,9 @@ void SystemHandler::setFunctions(entt::registry& registry) {
     lua.set_function("setPosition", [&registry](entt::entity entity, float x, float y) {
         return setPosition(registry, entity, x, y);
     });
+    lua.set_function("getPosition", [&registry](entt::entity entity) {
+        return getPosition(registry, entity);
+    });
 }
 void SystemHandler::bindSystems() {
     systems[0] = lua["movementSystem"];

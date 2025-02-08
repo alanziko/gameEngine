@@ -19,3 +19,8 @@ void setPosition(entt::registry& registry, entt::entity entity, float x, float y
     position.x = x;
     position.y = y;
 }
+
+std::vector<float> getPosition(entt::registry& registry, entt::entity entity) {
+    auto& position = registry.get<Position>(entity);
+    return std::vector<float>{position.x, position.y};
+}

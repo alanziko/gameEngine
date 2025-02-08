@@ -1,8 +1,8 @@
 function movementSystem(registry)
     local entities = getEntitiesByComponent("Position")
-    for i = 1,#entities,1
+    local position = getPosition(entities[1])
+    for k, v in pairs(position)
     do
-        print(i)
-        setPosition(entities[i], 0, 0)
+        setPosition(entities[1], k, v+10)
     end
 end
