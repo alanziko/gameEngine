@@ -1,4 +1,3 @@
-#include <entt.hpp>
 #include "luaFunctions.hpp"
 
 std::vector<entt::entity> getEntitiesByComponent(entt::registry& registry, std::string componentName) {
@@ -21,6 +20,11 @@ void setPosition(entt::registry& registry, entt::entity entity, float x, float y
 }
 
 std::vector<float> getPosition(entt::registry& registry, entt::entity entity) {
-    auto& position = registry.get<Position>(entity);
+    const auto& position = registry.get<Position>(entity);
     return std::vector<float>{position.x, position.y};
+}
+
+std::vector<int> getMousePosition(sf::RenderWindow& window) {
+    const auto position = sf::Mouse::getPosition(window);
+    return std::vector<int>{position.x, position.y};
 }

@@ -1,14 +1,13 @@
 #include "combatScene.hpp"
 
-CombatScene::CombatScene() : systemHandler(registry) {
+CombatScene::CombatScene(sf::RenderWindow& window) : 
+    window(window),
+    systemHandler(registry, window) {
     loadScene();
 }
 
 void CombatScene::update() {
     systemHandler.runSystems(registry);   
-}
-
-void CombatScene::updateEvents() {
 }
 
 entt::registry& CombatScene::getRegistry() {

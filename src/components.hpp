@@ -18,5 +18,3 @@ struct TextInfo {
 };
 
 struct SelectedUnit {};
-
-struct Empty {};

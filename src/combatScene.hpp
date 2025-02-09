@@ -12,16 +12,13 @@ using json = nlohmann::json;
 
 class CombatScene {
     public:
-        CombatScene();
+        CombatScene(sf::RenderWindow& window);
 
         void update();
         void loadScene();
         entt::registry& getRegistry();
-
-    private:
-        void updateEvents();
-    
-        sf::RenderWindow window;
+    private:    
+        sf::RenderWindow& window;
         entt::registry registry;
         SystemHandler systemHandler;
 };
