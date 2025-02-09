@@ -26,6 +26,6 @@ void SystemHandler::bindSystems() {
     systems[0] = lua["movementSystem"];
 }
 
-void SystemHandler::runSystems(entt::registry& registry) {
+void SystemHandler::runSystems(entt::registry& registry) {  
     systems[0](registry);
 }
