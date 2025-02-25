@@ -14,9 +14,9 @@ void EventHandler::pollEvent() {
         if (event.type == sf::Event::Closed)
             window.close();
         
-
-        auto eventMapComponent = registry.get<EventMap>(eventMap);
+        auto& eventMapComponent = registry.get<EventMap>(eventMap);
         eventMapComponent.event = event; 
-        eventMapComponent.mouse_position = sf::Mouse::getPosition();
+        eventMapComponent.mouse_position = sf::Mouse::getPosition(window);
     }
 }
+  

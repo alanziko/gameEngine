@@ -8,6 +8,10 @@ std::vector<entt::entity> getEntitiesByComponent(entt::registry& registry, std::
             entities.push_back(entity);
         }
         return entities;
+    } else if(componentName == "SelectedUnit") {
+        const auto& entity = registry.view<SelectedUnit>().front();
+        entities.push_back(entity);
+        return entities;
     } else {
         return std::vector<entt::entity>{};
     }
@@ -22,4 +26,14 @@ void setPosition(entt::registry& registry, entt::entity entity, float x, float y
 std::vector<float> getPosition(entt::registry& registry, entt::entity entity) {
     const auto& position = registry.get<Position>(entity);
     return std::vector<float>{position.x, position.y};
+}
+
+std::vector<int> getMousePosition(entt::registry& registry, entt::entity entity) {
+    const auto& eventMapData = registry.get<EventMap>(entity);
+    sf::Vector2i mouse_position = eventMapData.mouse_position;
+    return std::vector<int>{mouse_position.x, mouse_position.y};
+}
+
+entt::entity getEventMap(entt::registry& registry) {
+    return registry.view<EventMap>().front();
 }
