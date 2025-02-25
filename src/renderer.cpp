@@ -1,7 +1,7 @@
 #include "renderer.hpp"
 
 Renderer::Renderer(sf::RenderWindow& win) : window(win) {
-    textColor = sf::Color::White;
+    textColor = sf::Color::White; // to change
 }
 
 void Renderer::draw(entt::registry& registry) {

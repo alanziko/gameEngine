@@ -23,8 +23,3 @@ std::vector<float> getPosition(entt::registry& registry, entt::entity entity) {
     const auto& position = registry.get<Position>(entity);
     return std::vector<float>{position.x, position.y};
 }
-
-std::vector<int> getMousePosition(sf::RenderWindow& window) {
-    const auto position = sf::Mouse::getPosition(window);
-    return std::vector<int>{position.x, position.y};
-}

@@ -11,6 +11,7 @@ set(SOURCES
     src/combatScene.cpp
     src/systemHandler.cpp
     src/luaFunctions.cpp
+    src/eventHandler.cpp
 )
 
 add_executable(app ${SOURCES})

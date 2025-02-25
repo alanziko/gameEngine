@@ -6,8 +6,8 @@
 
 class SystemHandler {
     public:
-        SystemHandler(entt::registry& registry, sf::RenderWindow& window);
-        void setFunctions(entt::registry& registry, sf::RenderWindow& window);
+        SystemHandler(entt::registry& registry);
+        void setFunctions(entt::registry& registry);
         void bindSystems();
         void runSystems(entt::registry& registry);
     private:

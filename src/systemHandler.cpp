@@ -1,13 +1,13 @@
 #include "systemHandler.hpp"
 
-SystemHandler::SystemHandler(entt::registry& registry, sf::RenderWindow& window) {
+SystemHandler::SystemHandler(entt::registry& registry) {
     lua.open_libraries(sol::lib::base);
     lua.script_file("../src/scripts/movementSystem.lua");   
     bindSystems();
-    setFunctions(registry, window);
+    setFunctions(registry);
 }
 
-void SystemHandler::setFunctions(entt::registry& registry, sf::RenderWindow& window) {
+void SystemHandler::setFunctions(entt::registry& registry) {
     lua.set_function("getEntitiesByComponent", [&registry](std::string componentName) {
         return getEntitiesByComponent(registry, componentName);
     });
@@ -16,9 +16,6 @@ void SystemHandler::setFunctions(entt::registry& registry, sf::RenderWindow& win
     });
     lua.set_function("getPosition", [&registry](entt::entity entity) {
         return getPosition(registry, entity);
-    });
-    lua.set_function("getMousePosition", [&window]() {
-        return getMousePosition(window);
     });
 }
 

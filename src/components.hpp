@@ -7,8 +7,8 @@ struct Position {
 };
 
 struct Stats {
-    int hp;
-    int mvn;
+    int hit_points;
+    int movement;
 };
 
 struct TextInfo {
@@ -18,3 +18,8 @@ struct TextInfo {
 };
 
 struct SelectedUnit {};
+
+struct EventMap {
+    sf::Event event;
+    sf::Vector2i mouse_position;
+};

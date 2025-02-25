@@ -2,12 +2,14 @@
 
 CombatScene::CombatScene(sf::RenderWindow& window) : 
     window(window),
-    systemHandler(registry, window) {
+    systemHandler(registry),
+    eventHandler(window, registry) {
     loadScene();
 }
 
 void CombatScene::update() {
-    systemHandler.runSystems(registry);   
+    eventHandler.pollEvent();
+    systemHandler.runSystems(registry);
 }
 
 entt::registry& CombatScene::getRegistry() {
@@ -21,7 +23,7 @@ void CombatScene::loadScene() {
     file >> j;
 
     for(const auto& entity_data : j["entities"]) {
-        const auto entity = registry.create();
+        const auto& entity = registry.create();
 
         auto position = entity_data["position"];
 
