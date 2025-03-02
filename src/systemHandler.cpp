@@ -15,6 +15,9 @@ void SystemHandler::setFunctions(entt::registry& registry) {
     lua.set_function("getEntitiesByComponent", [&registry](std::string componentName) {
         return getEntitiesByComponent(registry, componentName);
     });
+    lua.set_function("setSelectedUnit", [&registry](entt::entity entity) {
+        return setSelectedUnit(registry, entity);
+    });
     lua.set_function("setPosition", [&registry](entt::entity entity, float x, float y) {
         return setPosition(registry, entity, x, y);
     });
@@ -24,7 +27,6 @@ void SystemHandler::setFunctions(entt::registry& registry) {
     lua.set_function("getMousePosition", [&registry](entt::entity entity) {
         return getMousePosition(registry, entity);
     });
-    
 }
 
 void SystemHandler::bindSystems() {
@@ -32,7 +34,7 @@ void SystemHandler::bindSystems() {
     systems[1] = lua["unitSystem"];
 }
 
-void SystemHandler::runSystems(entt::registry& registry) {  
+void SystemHandler::runSystems(entt::registry& registry) { 
     systems[0](registry);
     systems[1](registry);
 }

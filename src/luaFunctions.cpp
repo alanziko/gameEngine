@@ -1,5 +1,9 @@
 #include "luaFunctions.hpp"
 
+entt::entity getEventMap(entt::registry& registry) {
+    return registry.view<EventMap>().front();
+}
+
 std::vector<entt::entity> getEntitiesByComponent(entt::registry& registry, std::string componentName) {
     std::vector<entt::entity> entities;
     if(componentName == "Position") {
@@ -15,6 +19,12 @@ std::vector<entt::entity> getEntitiesByComponent(entt::registry& registry, std::
     } else {
         return std::vector<entt::entity>{};
     }
+}
+
+void setSelectedUnit(entt::registry& registry, entt::entity entity) {
+    const auto selecetedEntity = registry.view<SelectedUnit>().front();
+    registry.remove<SelectedUnit>(selecetedEntity);
+    registry.emplace<SelectedUnit>(entity);
 }
 
 void setPosition(entt::registry& registry, entt::entity entity, float x, float y) {
@@ -34,6 +44,3 @@ std::vector<int> getMousePosition(entt::registry& registry, entt::entity entity)
     return std::vector<int>{mouse_position.x, mouse_position.y};
 }
 
-entt::entity getEventMap(entt::registry& registry) {
-    return registry.view<EventMap>().front();
-}

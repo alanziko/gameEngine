@@ -15,7 +15,7 @@ void EventHandler::pollEvent() {
             window.close();
         
         auto& eventMapComponent = registry.get<EventMap>(eventMap);
-        eventMapComponent.event = event; 
+        eventMapComponent.left_mouse_state = sf::Mouse::isButtonPressed(sf::Mouse::Left); 
         eventMapComponent.mouse_position = sf::Mouse::getPosition(window);
     }
 }

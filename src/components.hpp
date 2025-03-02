@@ -20,6 +20,6 @@ struct TextInfo {
 struct SelectedUnit {};
 
 struct EventMap {
-    sf::Event event;
+    bool left_mouse_state;
     sf::Vector2i mouse_position;
 };
