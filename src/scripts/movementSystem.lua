@@ -1,5 +1,9 @@
 function movementSystem(registry)
-    -- local entities = getEntitiesByComponent("Position")
-    -- local position = getPosition(entities[1])
-    -- print(position[2])
+    local entity = getSelectedUnit()
+    local pos = getPosition(entity)
+
+    local rightMouseButton = getRightMouseButtonState(eventMapEntity)    
+    if (rightMouseButton) then
+        setPosition(entity, pos[1]+1, pos[2])
+    end
 end

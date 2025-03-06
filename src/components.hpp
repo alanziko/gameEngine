@@ -6,11 +6,6 @@ struct Position {
     float y;
 };
 
-struct Stats {
-    int hit_points;
-    int movement;
-};
-
 struct TextInfo {
     std::string str;
     sf::Font font;
@@ -20,6 +15,7 @@ struct TextInfo {
 struct SelectedUnit {};
 
 struct EventMap {
-    bool left_mouse_state;
+    bool left_button_state;
+    bool right_button_state;
     sf::Vector2i mouse_position;
 };

@@ -1,8 +1,7 @@
 #pragma once
 
-enum {
-    APP_SIZE_X = 600,
-    APP_SIZE_Y = 700,
-    TILE_SIZE = 10,
-    MAP_Y_OFFSET = 100,
-};
+constexpr int APP_SIZE_X = 600;
+constexpr int APP_SIZE_Y = 700;
+constexpr int TILE_SIZE = 10;
+constexpr int MAP_Y_OFFSET = 100;
+

@@ -4,7 +4,7 @@ Game::Game() :
     window(sf::RenderWindow(sf::VideoMode(APP_SIZE_X, APP_SIZE_Y), "App")),
     renderer(window), 
     scene(window) {
-    window.setFramerateLimit(1); // to change
+    window.setFramerateLimit(30); 
 }
 
 bool Game::isRunning() {

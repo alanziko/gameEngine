@@ -2,14 +2,14 @@
 
 CombatScene::CombatScene(sf::RenderWindow& window) : 
     window(window),
-    systemHandler(registry),
-    eventHandler(window, registry) {
+    eventHandler(window, registry),
+    systemHandler(registry) {
     loadScene();
 }
 
 void CombatScene::update() {
     eventHandler.pollEvent();
-    systemHandler.runSystems(registry);
+    systemHandler.runSystems();
 }
 
 entt::registry& CombatScene::getRegistry() {
