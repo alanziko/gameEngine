@@ -20,7 +20,7 @@ bool getRightMouseButtonState(entt::registry& registry, entt::entity eventMap) {
 std::vector<entt::entity> getEntitiesByComponent(entt::registry& registry, std::string componentName) {
     std::vector<entt::entity> output = {};
     if(componentName == "Position") {
-        auto const view = registry.view<Position>();
+        auto const view = registry.view<Position>(entt::exclude<TextInfo>);
         for(entt::entity const entity : view) {
             output.push_back(entity);
         }

@@ -13,5 +13,18 @@
                 "y": 10
             }
         }
+    ],
+    "texts": [
+        {
+            "position": {
+                "x":0,
+                "y":0
+            },
+            "textInfo": {
+                "str": "LMB - select unit, RMB - move by one tile",
+                "font": "../assets/arial.ttf",
+                "charSize": 20
+            }
+        }
     ]
 }

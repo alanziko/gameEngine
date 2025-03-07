@@ -15,10 +15,9 @@ void Renderer::draw(entt::registry& registry) {
 }
 
 void Renderer::drawUnits(entt::registry& registry) {
-    auto view = registry.view<Position>();
+    auto view = registry.view<Position>(entt::exclude<TextInfo>);
         for (const auto& entity : view) {
         const auto pos = view.get<Position>(entity); 
-        // const auto color = view.get<sf::Color>(entity);
 
         sf::RectangleShape rect(sf::Vector2f(TILE_SIZE, TILE_SIZE));
         rect.setPosition(sf::Vector2f(pos.x*TILE_SIZE, pos.y*TILE_SIZE+MAP_Y_OFFSET));

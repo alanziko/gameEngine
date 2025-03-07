@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+struct Unit{};
+
 struct Position {
     float x;
     float y;
