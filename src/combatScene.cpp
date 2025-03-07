@@ -28,6 +28,5 @@ void CombatScene::loadScene() {
         auto position = entity_data["position"];
 
         registry.emplace<Position>(entity, (float)position["x"], (float)position["y"]);
-        // registry.emplace<sf::Color>(entity, sf::Color::Red);
     }
 }

@@ -6,7 +6,7 @@
 
 class Renderer {
     public:
-        Renderer(sf::RenderWindow& win);
+        Renderer(sf::RenderWindow& window);
     
         void draw(entt::registry& registry);
 

@@ -1,6 +1,6 @@
 function unitSystem()
-    local mousePosition = getMousePosition(eventMapEntity)
-    local leftMouseButton = getLeftMouseButtonState(eventMapEntity)
+    local mousePosition = getMousePosition()
+    local leftMouseButton = getLeftMouseButtonState()
     local units = getEntitiesByComponent("Position")
 
     for _, unit in pairs(units) do

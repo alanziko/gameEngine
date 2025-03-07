@@ -8,11 +8,13 @@
 class SystemHandler {
     public:
         SystemHandler(entt::registry& registry);
-        void setup(entt::registry& registry);
-        void setFunctions(entt::registry& registry);
+        void setup();
+        void setFunctions();
         void bindSystems();
         void runSystems();
     private:
+        entt::registry& registry;
+        entt::entity eventMapEntity;
         sol::state lua;
         std::function<void()> systems[2];
 };

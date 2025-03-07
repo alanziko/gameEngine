@@ -1,16 +1,16 @@
 #include "systemHandler.hpp"
 
-SystemHandler::SystemHandler(entt::registry& registry) {
-    setup(registry);
-    setFunctions(registry);
+SystemHandler::SystemHandler(entt::registry& registry) :
+    registry(registry) {
+    setup();
+    setFunctions();
     bindSystems();
 }
 
 
-void SystemHandler::setup(entt::registry& registry) {
+void SystemHandler::setup() {
 
-    const auto eventMapEntity = registry.view<EventMap>().front();
-    lua.set("eventMapEntity", eventMapEntity);
+    eventMapEntity = registry.view<EventMap>().front();
 
     lua["APP_SIZE_X"] = APP_SIZE_X;
     lua["APP_SIZE_Y"] = APP_SIZE_Y;
@@ -23,29 +23,29 @@ void SystemHandler::setup(entt::registry& registry) {
     lua.script_file("../src/scripts/unitSystem.lua");
 }
 
-void SystemHandler::setFunctions(entt::registry& registry) {
-    lua.set_function("getMousePosition", [&registry](entt::entity eventMap) {
-        return getMousePosition(registry, eventMap);
+void SystemHandler::setFunctions() {
+    lua.set_function("getMousePosition", [this]() {
+        return getMousePosition(registry, eventMapEntity);
     });
-    lua.set_function("getLeftMouseButtonState", [&registry](entt::entity eventMap) {
-        return getLeftMouseButtonState(registry, eventMap);
+    lua.set_function("getLeftMouseButtonState", [this]() {
+        return getLeftMouseButtonState(registry, eventMapEntity);
     });
-    lua.set_function("getRightMouseButtonState", [&registry](entt::entity eventMap) {
-        return getRightMouseButtonState(registry, eventMap);
+    lua.set_function("getRightMouseButtonState", [this]() {
+        return getRightMouseButtonState(registry, eventMapEntity);
     });
-    lua.set_function("getEntitiesByComponent", [&registry](std::string componentName) {
+    lua.set_function("getEntitiesByComponent", [this](std::string componentName) {
         return getEntitiesByComponent(registry, componentName);
     });
-    lua.set_function("setSelectedUnit", [&registry](entt::entity entity) {
+    lua.set_function("setSelectedUnit", [this](entt::entity entity) {
         return setSelectedUnit(registry, entity);
     });
-    lua.set_function("getSelectedUnit", [&registry]() {
+    lua.set_function("getSelectedUnit", [this]() {
         return getSelectedUnit(registry);
     });
-    lua.set_function("setPosition", [&registry](entt::entity entity, float x, float y) {
+    lua.set_function("setPosition", [this](entt::entity entity, float x, float y) {
         return setPosition(registry, entity, x, y);
     });
-    lua.set_function("getPosition", [&registry](entt::entity entity) {
+    lua.set_function("getPosition", [this](entt::entity entity) {
         return getPosition(registry, entity);
     });
 }

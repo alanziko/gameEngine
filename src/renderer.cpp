@@ -1,6 +1,7 @@
 #include "renderer.hpp"
 
-Renderer::Renderer(sf::RenderWindow& win) : window(win) {
+Renderer::Renderer(sf::RenderWindow& window) : 
+    window(window) {
     textColor = sf::Color::White; // to change
 }
 
