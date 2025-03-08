@@ -1,6 +1,6 @@
 # Game Engine
 "Game Engine" is just simple concept of game engine using ECS.
-
+This project was created during the learning process, and its quality isn’t the best.
 ## How to build
 Linux terminal commands to build project:
 ```
@@ -11,18 +11,18 @@ make
 ```
 Building was only tested in Linux but it should also work in Windows by adding cmake flag ```-G "Unix Makefiles"```.
 
-If any problems occur during build you can post an issue.
-
+If any problems occur during the build process, you can report them by posting an issue.
 ### Dependencies
-- Lua 5.4
-- nlohmann_json 3.11
-- SFML 2.6
+- [Lua](https://www.lua.org/) 5.4
+- [nlohmann/json](https://github.com/nlohmann/json) 3.11
+- [SFML](https://www.sfml-dev.org) 2.6
 
 There are also headers-only libraries that are already included in project:
-- EnTT
-- sol2
+- [EnTT](https://github.com/skypjack/entt) 3.14.0
+- [sol2](https://github.com/ThePhD/sol2) 3.3.0
 ## To-do list
-Project is already done but there are some changes that I want to do in the future. Most of them will make engine easier to expand and use. Final version should allow user to create components, scenes and systems (lua scripts) to make simple game without editing src.
+The project is already complete, but I plan to implement some future changes to enhance its expandability and ease of use. These updates will focus on making the engine more flexible and user-friendly. The final version should enable users to create components, scenes, and systems (Lua scripts) to build simple games without needing to modify the source code.
 - [ ] Organize project includes/headers
 - [ ] Implement better solution for Lua bindings
 - [ ] Change how functions access entities and updates components values
+- [ ] Create scene class for menu
